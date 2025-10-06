@@ -9,7 +9,7 @@ e segue [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Adicione aqui mudanças que ainda não foram lançadas.
 
 ## [1.0.0] - 2025-10-06
-### Adicionado
+### Adicionado #
 - Inicialização do projeto com README e estrutura básica.
 
 ### Alterado
