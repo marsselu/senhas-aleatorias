@@ -1,6 +1,6 @@
 services:
   giropops-senhas:
-    image: nataliagranato/senhas:056bd-20240826194022 #trocar para imagem a ser criada com APKO
+    image: nataliagranato/senhas:056bd-20240826194022 #trocar para image a ser criada com APKO
     ports:
       - "5000:5000"
     networks:
