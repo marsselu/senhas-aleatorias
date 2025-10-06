@@ -15,5 +15,5 @@ e segue [Semantic Versioning](https://semver.org/lang/pt-BR/).
 ### Alterado
 - Nenhuma alteração nesta versão inicial.
 
-### Corrigido
+### Corrigido #
 - Nenhum bug nesta versão inicial.
