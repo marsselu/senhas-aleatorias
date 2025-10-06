@@ -2,7 +2,7 @@
 
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9384/badge)](https://www.bestpractices.dev/projects/9384)[![Build da imagem de container Redis](https://github.com/Tech-Preta/LINUXtips-PICK/actions/workflows/redis-docker.yml/badge.svg?branch=main)](https://github.com/Tech-Preta/LINUXtips-PICK/actions/workflows/redis-docker.yml) [![Build da imagem de container giropops-senhas](https://github.com/Tech-Preta/LINUXtips-PICK/actions/workflows/giropops-docker.yml/badge.svg)](https://github.com/Tech-Preta/LINUXtips-PICK/actions/workflows/giropops-docker.yml) [![Build e Distribuição de Pacotes com Melange e APKO](https://github.com/Tech-Preta/LINUXtips-PICK/actions/workflows/chainguard.yml/badge.svg)](https://github.com/Tech-Preta/LINUXtips-PICK/actions/workflows/chainguard.yml) [![CodeQL](https://github.com/Tech-Preta/giropops-senhas/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Tech-Preta/giropops-senhas/actions/workflows/github-code-scanning/codeql) [![Dependabot Updates](https://github.com/Tech-Preta/giropops-senhas/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/Tech-Preta/giropops-senhas/actions/workflows/dependabot/dependabot-updates) [![Image digest update](https://github.com/Tech-Preta/giropops-senhas/actions/workflows/digestabot.yml/badge.svg)](https://github.com/Tech-Preta/giropops-senhas/actions/workflows/digestabot.yml)
 
-O projeto **Giropops Senhas** é uma aplicação web desenvolvida com Flask que permite a geração e gerenciamento de senhas aleatórias. A aplicação utiliza Redis para armazenamento de dados e é containerizada usando Docker. Além disso, o projeto inclui integração contínua com GitHub Actions para construção e envio de imagens Docker, bem como verificação de vulnerabilidades com Docker Scout e assinatura da imagem com Cosign.
+O projeto **Giropops Senhas** é uma aplicação web desenvolvida com Flask que permite a geração e gerenciamento de senhas. A aplicação utiliza Redis para armazenamento de dados e é containerizada usando Docker. Além disso, o projeto inclui integração contínua com GitHub Actions para construção e envio de imagens Docker, bem como verificação de vulnerabilidades.
 
 
 # **NOTA IMPORTANTE**
@@ -24,7 +24,6 @@ sequenceDiagram
     Prometheus->>Grafana: Coleta de métricas
     Grafana->>User: Exibe painel de monitoramento
 ```
-
 
 # Links do Projeto
 
