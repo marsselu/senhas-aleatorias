@@ -4,8 +4,6 @@
 
 O projeto **Giropops Senhas** é uma aplicação web desenvolvida com Flask que permite a geração e gerenciamento de senhas. A aplicação utiliza Redis para armazenamento de dados e é containerizada usando Docker. Além disso, o projeto inclui integração contínua com GitHub Actions para construção e envio de imagens Docker, bem como verificação de vulnerabilidades.
 
-Este projeto é baseado no **Giropops Senhas** e em vários momentos também se refere ao repositório desenvolvido pela github.com/nataliagranato. 
-
 ```mermaid
 sequenceDiagram
     participant User
