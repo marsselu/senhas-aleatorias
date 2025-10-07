@@ -1,20 +1,68 @@
 services:
-  giropops-senhas:
-    image: nataliagranato/senhas:056bd-20240826194022 #trocar para image a ser criada com APKO
+  srv-senhas:
+  #  image: nataliagranato/senhas:056bd-20240826194022 #trocar para image a ser criada com APKO
+    image: marsselu/giropops-senhas:wolfi
     ports:
       - "5000:5000"
     networks:
-      - net-senhas-aleatorias
+      - net-app
     environment:
       - REDIS_HOST=redis
+    volumes:
+      - vol-app:/vol-app
+    deploy:
+      replicas: 1
+      resources:
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+        limits:
+          cpus: '0.50'
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+#      interval: 30s
+#      timeout: 5s
+#      retries: 3
+#      start_period: 10s
+    depends_on:
+      - redis
+    labels:
+      com.docker.description: "Giropops Senhas - APP"
+      com.docker.version: "1.0"
   redis:
     image: redis
-    ports: "6379:6379"
+   # ports: 
+   #   - "6380:6379"
     networks:
-      - net-senhas-aleatorias
+      - net-app
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+        io.linuxtips.description: "Redis Server"
+        io.linuxtips.version: "Latest"
 networks:
-  net-giropops-senhas
+  net-app:
     driver: bridge
-
+    labels:
+        io.linuxtips.description: "net_app"
+volumes:
+  vol-app:
+    driver: local
+    labels:
+        io.linuxtips.description: "volume-app"
+  redis-data: 
+    labels:
+        io.linuxtips.description: "volume-redis"
 
       
