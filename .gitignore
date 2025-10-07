@@ -9,3 +9,4 @@ node_modules/
 # Ignorar arquivos temporários
 *.log
 *.tmp
+*.gitignore
