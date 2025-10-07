@@ -1,2 +1,11 @@
+
+# Ignorar diretório de dependências
+node_modules/
+
 *.yaml.semvolume
 *copy*
+
+
+# Ignorar arquivos temporários
+*.log
+*.tmp
