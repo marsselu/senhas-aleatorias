@@ -12,6 +12,7 @@ Além disso, o projeto inclui integração contínua com GitHub Actions para con
 
 - Este projeto é baseado na aplicacao **Giropops Senhas** da Linuxtips, do Mestre Jedi ***[github.com/badtuxx](https://)***.
 - Este README foi baseado no projeto desenvolvido por ***[github.com/nataliagranato](https://)*** e pode ser conferido aqui ***[github.com/nataliagranato/containers-and-kubernetes](https://)***. 
+- Ultima atualizacao: 22.03.2026
 
 ```mermaid
 sequenceDiagram
@@ -34,6 +35,9 @@ sequenceDiagram
 
 ## Públicos
 
+- a ser atualizado
+<!--
+
 - **Aplicação pode ser acessada localmente em**: [https://senhas.nataliagranato.xyz](https://senhas.nataliagranato.xyz). Caso tenha problemas com o certificado, use a aba anônima.
 - **Documentação do Projeto**: [https://devops.nataliagranato.xyz](https://devops.nataliagranato.xyz)
 - **Pipelines**: [https://github.com/nataliagranato/LINUXtips-PICK/tree/develop/.github/workflows](https://github.com/nataliagranato/LINUXtips-PICK/tree/develop/.github/workflows)
@@ -42,14 +46,20 @@ sequenceDiagram
 - **Grafana**: [https://grafana.nataliagranato.xyz/public-dashboards/56431da54e9143438ef8e5da78258347](https://grafana.nataliagranato.xyz/public-dashboards/56431da54e9143438ef8e5da78258347)
 - **Pacotes**: [https://github.com/nataliagranato?tab=packages&repo_name=LINUXtips-PICK](https://github.com/nataliagranato?tab=packages&repo_name=LINUXtips-PICK)
 
-## Privados
 
+-->
+
+## Privados
+<!--
 - **Helm Chart**: [https://github.com/nataliagranato/senhas](https://github.com/nataliagranato/senhas)
 - **Registry**: `nataliagranato/senhas:1.0.0-amd64`
+--> 
+- **Helm Chart**: [https://github.com/marsselu/senhas-aleatorias/helm](https://github.com/marsselu/senhas-aleatorias/helm)
+- **Registry**: `marsselu/giropops-senhas:wolfi`
 
 ## Ferramentas e Tecnologias Utilizadas
 
-![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![YAML](https://img.shields.io/badge/yaml-%23ffffff.svg?style=for-the-badge&logo=yaml&logoColor=151515) ![AquaSec](https://img.shields.io/badge/aqua-%231904DA.svg?style=for-the-badge&logo=aqua&logoColor=#0018A8) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![YAML](https://img.shields.io/badge/yaml-%23ffffff.svg?style=for-the-badge&logo=yaml&logoColor=151515) <!--![AquaSec](https://img.shields.io/badge/aqua-%231904DA.svg?style=for-the-badge&logo=aqua&logoColor=#0018A8)--> ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white) ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
 
 ## Ferramentas e Tecnologias Utilizadas
 
@@ -65,27 +75,70 @@ sequenceDiagram
 - **APKO**: Utilizado para construção de imagens de contêiner.
 - **Melange**: Utilizado para construção de pacotes.
 - **Helm**: Utilizado para gerenciamento de pacotes Kubernetes.
-- **Hadolint**: Utilizado para verificação de qualidade de Dockerfiles.
-- **Docker Scout**: Utilizado para verificação de vulnerabilidades em imagens de contêiner.
-- **Snyk**: Utilizado para verificação de vulnerabilidades em dependências de aplicativos.
+<!-- - **Hadolint**: Utilizado para verificação de qualidade de Dockerfiles.-->
+<!-- - **Docker Scout**: Utilizado para verificação de vulnerabilidades em imagens de contêiner.-->
+<!-- - **Snyk**: Utilizado para verificação de vulnerabilidades em dependências de aplicativos.-->
 - **Trivy**: Utilizado para verificação de vulnerabilidades em imagens de contêiner.
-- **CodeRabbit**: Utilizado para revisão de código.
-- **DependaBot**: Utilizado para manter as dependências atualizadas.
-- **Popeye**: Utilizado para verificação de configurações de cluster Kubernetes.
+<!-- - **CodeRabbit**: Utilizado para revisão de código.-->
+<!-- - **DependaBot**: Utilizado para manter as dependências atualizadas. -->
+<!-- - **Popeye**: Utilizado para verificação de configurações de cluster Kubernetes. -->
 - **Grafana**: Utilizado para visualização de métricas.
 
-## Utilizando em um cluster de desenvolvimento
+## Deploy num Cluster AKS na AWS
 
-1. Clone o repositório:
-
+1. Crie o cluster EKS na AWS:
 ```bash
-ansible-playbook atualizar_etc_hosts.yml
-ansible-playbook deploy.yml
+eksctl create cluster --name=eks-cluster --version=1.34 --region=us-east-1 --nodegroup-name=eks-cluster-nodegroup --node-type=t3.medium --nodes=2 --nodes-min=1 --nodes-max=3 --managed
 ```
 
-## Utilizando a aplicação localmente
+2. Deploy da aplicacao
+```bash
+kubectl apply -f app-deployment.yaml
+``` 
 
-1. Clone o repositório:
+3. Deploy do service da aplicacao
+```bash
+k apply -f app-service.yaml
+```
+
+4. Deploy do banco de dados
+```bash
+kubectl apply -f redis-deployment.yaml
+```
+
+5. Deploy do service do banco de dados
+```bash
+kubectl apply -f redis-service.yaml
+```
+
+6. Instalar o ingress-nginx para AWS (acessos AWS ja devem estar configurados)
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.14.0/deploy/static/provider/aws/deploy.yaml   
+```
+
+7. Instalar o controller na namespace "ingress-nginx"
+```bash
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+```
+
+8. Instalar o cert-manager para gerenciamento dos certificados para o Kubernetes
+```bash
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.19.1/cert-manager.yaml
+```
+
+9. Deploy do issuer na namespace
+```bash
+kubectl apply -f staging_issuer.yaml
+```
+     
+10. Deploy do cluster-issuer do cert-manager
+```bash
+kubectl apply -f production_issuer.yaml 
+```
+
 
 ```bash
 git clone https://github.com/Tech-Preta/giropops-senhas.git
