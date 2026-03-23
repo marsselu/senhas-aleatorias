@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: giropops-senhas-canary
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-production # referencia o ClusterIssuer criado anteriormente
+    nginx.ingress.kubernetes.io/canary: "true" # habilita canary
+    nginx.ingress.kubernetes.io/canary-weight: "90" # define o peso do canary (90% do trafego neste exemplo)
+    #---  
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - senhas.marceleza.com
+    secretName: senhas-marceleza-com-tls
+  rules:
+  - host: senhas.marceleza.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: giropops-senhas
+            port:
+              number: 5000

@@ -10,6 +10,7 @@ Além disso, o projeto inclui integração contínua com GitHub Actions para con
 
 # **NOTA IMPORTANTE**
 
+- Este projeto esta sendo atualizado (mar/2026)
 - Este projeto é baseado na aplicacao **Giropops Senhas** da Linuxtips, do Mestre Jedi ***[github.com/badtuxx](https://)***.
 - Este README foi baseado no projeto desenvolvido por ***[github.com/nataliagranato](https://)*** e pode ser conferido aqui ***[github.com/nataliagranato/containers-and-kubernetes](https://)***. 
 - Ultima atualizacao: 22.03.2026
@@ -75,14 +76,22 @@ sequenceDiagram
 - **APKO**: Utilizado para construção de imagens de contêiner.
 - **Melange**: Utilizado para construção de pacotes.
 - **Helm**: Utilizado para gerenciamento de pacotes Kubernetes.
+- **Trivy**: Utilizado para verificação de vulnerabilidades em imagens de contêiner.
+- **Grafana**: Utilizado para visualização de métricas.
 <!-- - **Hadolint**: Utilizado para verificação de qualidade de Dockerfiles.-->
 <!-- - **Docker Scout**: Utilizado para verificação de vulnerabilidades em imagens de contêiner.-->
 <!-- - **Snyk**: Utilizado para verificação de vulnerabilidades em dependências de aplicativos.-->
-- **Trivy**: Utilizado para verificação de vulnerabilidades em imagens de contêiner.
 <!-- - **CodeRabbit**: Utilizado para revisão de código.-->
 <!-- - **DependaBot**: Utilizado para manter as dependências atualizadas. -->
 <!-- - **Popeye**: Utilizado para verificação de configurações de cluster Kubernetes. -->
-- **Grafana**: Utilizado para visualização de métricas.
+
+
+## Clonar o repositorio e preparar ambiente
+```bash
+git clone git@github.com:marsselu/senhas-aleatorias.git
+cd senhas-aleatorias
+```
+
 
 ## Deploy num Cluster AKS na AWS
 
@@ -140,10 +149,7 @@ kubectl apply -f production_issuer.yaml
 ```
 
 
-```bash
-git clone https://github.com/Tech-Preta/giropops-senhas.git
-cd giropops-senhas
-```
+<!--
 
 2. Utilize o Compose
 
@@ -185,3 +191,4 @@ Para contribuir com código, siga os passos abaixo:
 
 - [Template de Pull Request](.github/PULL_REQUEST_TEMPLATE.md)
 - [Template de Issue de Bug](.github/ISSUE_TEMPLATE/bug_report.md)
+-->
